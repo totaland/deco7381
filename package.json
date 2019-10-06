@@ -3,9 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/daygrid": "latest",
+    "@fullcalendar/interaction": "latest",
+    "@fullcalendar/react": "latest",
+    "@fullcalendar/timegrid": "latest",
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.2.1",
+    "@nivo/stream": "^0.59.3",
+    "aws-amplify": "^1.1.36",
+    "classnames": "^2.2.6",
+    "formik": "^1.5.8",
+    "lodash": "latest",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-router-dom": "latest",
+    "react-scripts": "3.1.1",
+    "styled-components": "latest",
+    "styled-icons": "latest",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
