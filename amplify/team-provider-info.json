@@ -15,5 +15,22 @@
                 "authenticatedeco7381": {}
             }
         }
+    },
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "deco7381-dev-20191006112351-authRole",
+            "UnauthRoleArn": "arn:aws:iam::488315833985:role/deco7381-dev-20191006112351-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::488315833985:role/deco7381-dev-20191006112351-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "deco7381-dev-20191006112351-deployment",
+            "UnauthRoleName": "deco7381-dev-20191006112351-unauthRole",
+            "StackName": "deco7381-dev-20191006112351",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:488315833985:stack/deco7381-dev-20191006112351/f4a8f850-e7d7-11e9-8db4-0a1a04ef0eac"
+        },
+        "categories": {
+            "auth": {
+                "authenticatedeco7381": {}
+            }
+        }
     }
 }
