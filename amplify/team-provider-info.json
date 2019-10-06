@@ -1,26 +1,19 @@
 {
-    "decoenv": {
+    "master": {
         "awscloudformation": {
-            "AuthRoleName": "deco7381-decoenv-20190824141457-authRole",
-            "UnauthRoleArn": "arn:aws:iam::488315833985:role/deco7381-decoenv-20190824141457-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::488315833985:role/deco7381-decoenv-20190824141457-authRole",
+            "AuthRoleName": "deco7381-master-20191006103142-authRole",
+            "UnauthRoleArn": "arn:aws:iam::488315833985:role/deco7381-master-20191006103142-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::488315833985:role/deco7381-master-20191006103142-authRole",
             "Region": "ap-southeast-2",
-            "DeploymentBucketName": "deco7381-decoenv-20190824141457-deployment",
-            "UnauthRoleName": "deco7381-decoenv-20190824141457-unauthRole",
-            "StackName": "deco7381-decoenv-20190824141457",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:488315833985:stack/deco7381-decoenv-20190824141457/bbaf7ac0-c625-11e9-86c0-0290a6e588aa"
-        }
-    },
-    "amplifydev": {
-        "awscloudformation": {
-            "AuthRoleName": "deco7381-amplifydev-20190824142305-authRole",
-            "UnauthRoleArn": "arn:aws:iam::488315833985:role/deco7381-amplifydev-20190824142305-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::488315833985:role/deco7381-amplifydev-20190824142305-authRole",
-            "Region": "ap-southeast-2",
-            "DeploymentBucketName": "deco7381-amplifydev-20190824142305-deployment",
-            "UnauthRoleName": "deco7381-amplifydev-20190824142305-unauthRole",
-            "StackName": "deco7381-amplifydev-20190824142305",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:488315833985:stack/deco7381-amplifydev-20190824142305/ded6d970-c626-11e9-86c0-0290a6e588aa"
+            "DeploymentBucketName": "deco7381-master-20191006103142-deployment",
+            "UnauthRoleName": "deco7381-master-20191006103142-unauthRole",
+            "StackName": "deco7381-master-20191006103142",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:488315833985:stack/deco7381-master-20191006103142/abbee8e0-e7d0-11e9-ba18-02bf7f1fc1f4"
+        },
+        "categories": {
+            "auth": {
+                "authenticatedeco7381": {}
+            }
         }
     }
 }

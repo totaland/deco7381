@@ -1,0 +1,30 @@
+type Psychologist
+  @model
+  @auth(rules: [{allow: owner}])
+{
+  id: ID!
+  email: String
+  phone: String
+  patients: [Patient] @connection(name: "Patients")
+  appointments: Appointment @connection(name: "AppointmentsPsychologist")
+}
+type Patient
+  @model
+  @auth(rules: [{allow: owner}])
+{
+  id: ID!
+  email: String
+  phone: String
+  appointments: [Appointment] @connection(name: "Appointments")
+  psychologist: Psychologist @connection(name: "Patients")
+}
+type Appointment
+  @model
+  @auth(rules: [{allow: owner}])
+{
+  id: ID!
+  patient: Patient @connection(name: "Appointments")
+  psychologist: Psychologist @connection(name: "AppointmentsPsychologist")
+  purpose: String
+  time: String
+}
