@@ -122,8 +122,6 @@ export default function DemoApp () {
 
     const calendarComponentRef = React.createRef();
 
-
-
     const [events, setEvents] = useState(null);
     // get all appointment from database
     useEffect( ()=>{
@@ -141,6 +139,7 @@ export default function DemoApp () {
                     details.push(eventDetailsItem);
                 }
                 setEvents(details);
+                details=[];
             })
         } catch (e) {
             console.log(e);

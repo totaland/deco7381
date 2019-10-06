@@ -31,6 +31,7 @@ const Div = styled.div`
 `;
 let buttonValue =[];
 let details =[];
+let buttons = [];
 
 // main function
 function Appointment(props) {
@@ -52,6 +53,8 @@ function Appointment(props) {
                     buttonValue.push(0);
                 }
                 setState(details);
+                buttons = [...details];
+                details=[];
                 setActiveButton(buttonValue);
             });
         };
@@ -96,7 +99,7 @@ function Appointment(props) {
                     <Search/>
                 </Container>
                 <H3>Upcoming Appointments</H3>
-                {state && details.map((value, index) => (
+                {state && buttons.map((value, index) => (
                     <NewButton key={index} id={index} active={buttonState[index]} onClick={clickHandler}>{value.title} {value.start}</NewButton>)
                 )}
                 <RoundButton grey onClick={handleClick}>+</RoundButton>
