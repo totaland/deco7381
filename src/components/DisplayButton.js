@@ -38,10 +38,10 @@ const Button = styled.button`
 `;
 
 
-function DisplayButton({children, active, className, id, onClick}) {
+function DisplayButton({children, active, className, id, onClick, value}) {
 
     return (
-        <Button cream onClick={onClick} active ={active} id={id} className={className}>
+        <Button cream onClick={onClick} active ={active} id={id} className={className} value={value}>
             {children}
         </Button>
     )

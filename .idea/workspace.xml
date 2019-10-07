@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aee7fd9e-3932-4708-97f9-cbc5a69a6e82" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/backend/api/masterdeco7381api/parameters.json" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/api/masterdeco7381api/parameters.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Appointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chartview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chartview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisplayButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisplayButton.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,17 +77,21 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f7416977-14b1-4fa3-9517-402ab8d65df4" name="Default Changelist" comment="" />
+      <changelist id="aee7fd9e-3932-4708-97f9-cbc5a69a6e82" name="Default Changelist" comment="" />
       <created>1566619904300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566619904300</updated>
       <workItem from="1566619905961" duration="713000" />
+      <workItem from="1570353622827" duration="7886000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.graphql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
