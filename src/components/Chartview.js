@@ -45,7 +45,8 @@ const LeftContainer = styled.div`
 
 const P = styled.p`
     width: 90%;
-`
+    display: ${props=> props.active? 'block': 'none'};
+`;
 
 function reducer(state, action) {
     switch (action.type) {
@@ -61,7 +62,7 @@ function reducer(state, action) {
             return {
                 data: ['Engagement']
             };
-        case "Reset":
+        case "Comparisons":
             return {
                 data: ['Mood', 'Energy', 'Engagement']
             };
@@ -71,17 +72,23 @@ function reducer(state, action) {
 }
 export function ChartView(){
 
-    const initialState = [0, 0, 0];
+    const initialState = [0, 0, 0,1];
     const initialData = {
         data: [ 'Mood', 'Energy', 'Engagement']
     };
     const[state, dispatch] = useReducer(reducer, initialData);
     const[buttonState, setButton] = useState(initialState);
 
-    let data = [ 'Mood', 'Energy', 'Engagement', 'Reset'];
+    let data = [ 'Mood', 'Energy', 'Engagement', 'Comparisons'];
+    let descriptionItem = [
+        'Mood is an emotional state which typically described as having a positive or negative valence. In contrast to emotions, feelings, or affects, moods are less specific, less intense and less likely to be provoked or instantiated by a particular stimulus or event.',
+        'Energy psychology (EP) is a collection of mind-body approaches for understanding and improving human functioning. EP focuses on the relationship between thoughts, emotions, sensations, and behaviors, and known bioenergy systems (such as meridians and the biofield).',
+        'The concept of engagement was popularized by Kahn (1990), who related this concept to the notion of psychological presence. According to his definition, engagement refers to the state in which individuals express their entire self--physically, cognitively, and emotionally--in their role.',
+        'Select Mood, Energy or Engagement for more details.'
+    ];
 
     const handleClick = (event) => {
-        var arr = [...initialState];
+        var arr = [0,0,0,0];
         arr[event.currentTarget.id] = 1;
         setButton(arr);
         dispatch({type: event.target.value});
@@ -98,7 +105,9 @@ export function ChartView(){
                 </ButtonContainer>
                 <TextContainer grey>
                     <H3>Description</H3>
-                    <P>Mood is an emotional state which typically described as having a positive or negative valence. In contrast to emotions, feelings, or affects, moods are less specific, less intense and less likely to be provoked or instantiated by a particular stimulus or event.</P>
+                    {descriptionItem.map((value, index)=>
+                        <P key={index} id={index} active={buttonState[index]}>{value}</P>
+                    )}
                 </TextContainer>
             </LeftContainer>
             <StyledContainer blue>

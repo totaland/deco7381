@@ -22,6 +22,7 @@ const testdata = [
         "Mood": 23,
         "Energy": 27,
         "Engagement": 12,
+
     },
     {
         "Mood": 2,
@@ -73,8 +74,8 @@ const theme = {
 };
 
 
-export const MyResponsiveStream = ({data}) => {
 
+export const MyResponsiveStream = ({data}) => {
 
     return (
         <ResponsiveStream
@@ -99,7 +100,7 @@ export const MyResponsiveStream = ({data}) => {
             borderWidth={0}
             borderColor={"#606060"}
             offsetType="diverging"
-            // colors={{ scheme: 'nivo' }}
+            colors={['#FFDB15','#BBE629','#9BEBD6']}
             fillOpacity={0.85}
             defs={[
                 {
@@ -183,4 +184,5 @@ export const MyResponsiveStream = ({data}) => {
         />
     )
 }
+
 
