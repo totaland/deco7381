@@ -120,6 +120,15 @@ export const onCreatePatient = `subscription OnCreatePatient {
         time
       }
     }
+    fitness {
+      items {
+        id
+        depression
+        anxiety
+        stress
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -148,6 +157,15 @@ export const onUpdatePatient = `subscription OnUpdatePatient {
         purpose
         time
       }
+    }
+    fitness {
+      items {
+        id
+        depression
+        anxiety
+        stress
+      }
+      nextToken
     }
   }
 }
@@ -178,6 +196,15 @@ export const onDeletePatient = `subscription OnDeletePatient {
         time
       }
     }
+    fitness {
+      items {
+        id
+        depression
+        anxiety
+        stress
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -195,6 +222,9 @@ export const onCreateAppointment = `subscription OnCreateAppointment {
         id
         email
         phone
+      }
+      fitness {
+        nextToken
       }
     }
     psychologist {
@@ -230,6 +260,9 @@ export const onUpdateAppointment = `subscription OnUpdateAppointment {
         email
         phone
       }
+      fitness {
+        nextToken
+      }
     }
     psychologist {
       id
@@ -264,6 +297,9 @@ export const onDeleteAppointment = `subscription OnDeleteAppointment {
         email
         phone
       }
+      fitness {
+        nextToken
+      }
     }
     psychologist {
       id
@@ -280,6 +316,81 @@ export const onDeleteAppointment = `subscription OnDeleteAppointment {
     }
     purpose
     time
+  }
+}
+`;
+export const onCreateFitness = `subscription OnCreateFitness {
+  onCreateFitness {
+    id
+    depression
+    anxiety
+    stress
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateFitness = `subscription OnUpdateFitness {
+  onUpdateFitness {
+    id
+    depression
+    anxiety
+    stress
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteFitness = `subscription OnDeleteFitness {
+  onDeleteFitness {
+    id
+    depression
+    anxiety
+    stress
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+    }
   }
 }
 `;

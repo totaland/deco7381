@@ -81,6 +81,15 @@ export const getPatient = `query GetPatient($id: ID!) {
         time
       }
     }
+    fitness {
+      items {
+        id
+        depression
+        anxiety
+        stress
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -102,6 +111,9 @@ export const listPatients = `query ListPatients(
         email
         phone
       }
+      fitness {
+        nextToken
+      }
     }
     nextToken
   }
@@ -121,6 +133,9 @@ export const getAppointment = `query GetAppointment($id: ID!) {
         id
         email
         phone
+      }
+      fitness {
+        nextToken
       }
     }
     psychologist {
@@ -161,6 +176,52 @@ export const listAppointments = `query ListAppointments(
       }
       purpose
       time
+    }
+    nextToken
+  }
+}
+`;
+export const getFitness = `query GetFitness($id: ID!) {
+  getFitness(id: $id) {
+    id
+    depression
+    anxiety
+    stress
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const listFitnesss = `query ListFitnesss(
+  $filter: ModelFitnessFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFitnesss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      depression
+      anxiety
+      stress
+      patient {
+        id
+        email
+        phone
+      }
     }
     nextToken
   }

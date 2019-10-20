@@ -50,21 +50,21 @@ const P = styled.p`
 
 function reducer(state, action) {
     switch (action.type) {
-        case 'Mood':
+        case 'Stress':
             return {
-                data: ['Mood']
+                data: ['Stress']
             };
-        case 'Energy':
+        case 'Anxiety':
             return {
-                data: ['Energy']
+                data: ['Anxiety']
             };
-        case "Engagement":
+        case "Depression":
             return {
-                data: ['Engagement']
+                data: ['Depression']
             };
         case "Comparisons":
             return {
-                data: ['Mood', 'Energy', 'Engagement']
+                data: ['Stress', 'Anxiety', 'Depression']
             };
         default:
             return state;
@@ -74,17 +74,17 @@ export function ChartView(){
 
     const initialState = [0, 0, 0,1];
     const initialData = {
-        data: [ 'Mood', 'Energy', 'Engagement']
+        data: [ 'Stress', 'Anxiety', 'Depression']
     };
     const[state, dispatch] = useReducer(reducer, initialData);
     const[buttonState, setButton] = useState(initialState);
 
-    let data = [ 'Mood', 'Energy', 'Engagement', 'Comparisons'];
+    let data = ['Depression','Anxiety','Stress','Comparisons'];
     let descriptionItem = [
-        'Mood is an emotional state which typically described as having a positive or negative valence. In contrast to emotions, feelings, or affects, moods are less specific, less intense and less likely to be provoked or instantiated by a particular stimulus or event.',
-        'Energy psychology (EP) is a collection of mind-body approaches for understanding and improving human functioning. EP focuses on the relationship between thoughts, emotions, sensations, and behaviors, and known bioenergy systems (such as meridians and the biofield).',
-        'The concept of engagement was popularized by Kahn (1990), who related this concept to the notion of psychological presence. According to his definition, engagement refers to the state in which individuals express their entire self--physically, cognitively, and emotionally--in their role.',
-        'Select Mood, Energy or Engagement for more details.'
+        'Stress is an emotional state which typically described as having a positive or negative valence. In contrast to emotions, feelings, or affects, Stresss are less specific, less intense and less likely to be provoked or instantiated by a particular stimulus or event.',
+        'Anxiety psychology (EP) is a collection of mind-body approaches for understanding and improving human functioning. EP focuses on the relationship between thoughts, emotions, sensations, and behaviors, and known bioAnxiety systems (such as meridians and the biofield).',
+        'The concept of Depression was popularized by Kahn (1990), who related this concept to the notion of psychological presence. According to his definition, Depression refers to the state in which individuals express their entire self--physically, cognitively, and emotionally--in their role.',
+        'Select Stress, Anxiety or Depression for more details.'
     ];
 
     const handleClick = (event) => {
@@ -115,8 +115,8 @@ export function ChartView(){
                     <MyResponsiveStream data={state.data}/>
                 </Chart>
                 <Result>
-                    <Resulttext>Your Current Mood Score is 87 </Resulttext>
-                    <Resulttext>Your score is very high. This means that you're currently in a really good mood. But that doesn't mean you can now just stop with the exercises. Keep up the good work to maintain it! </Resulttext>
+                    <Resulttext>Your Current Stress Score is 87 </Resulttext>
+                    <Resulttext>Your score is very high. This means that you're currently in a really good Stress. But that doesn't mean you can now just stop with the exercises. Keep up the good work to maintain it! </Resulttext>
                 </Result>
             </StyledContainer>
         </Container>

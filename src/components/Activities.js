@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import "./activity.css"
+import Stressfitnesscheck from "./Stressfitnesscheck";
 
 const Styledcontainer = styled(Container)`
     overflow: auto;
@@ -126,9 +127,8 @@ const useStyles = makeStyles(theme => ({
                     <Wellbeingcheck/>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    Item Three
+                    <Stressfitnesscheck/>
                 </TabPanel>
-
             </Styledcontainer>
         </Container>
     );

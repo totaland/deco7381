@@ -116,6 +116,15 @@ function App() {
         console.log("appointment");
     };
 
+    // create fitness
+    const createFitness = async (fitness) => {
+
+        await API.graphql(
+            graphqlOperation(mutations.createFitness, {input: fitness})
+        );
+        console.log("appointment");
+    };
+
     const signOut = async e => {
         await Auth.signOut();
         dispatch({type: "LOGOUT"});
@@ -124,7 +133,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <AppContext.Provider value={[signOut, state2, dispatch, createUser, createPsychologist, createAppointment]}>
+            <AppContext.Provider value={[signOut, state2, dispatch, createUser, createPsychologist, createAppointment,createFitness]}>
                 <div className="App site">
                     <ResponsiveAppBar/>
                     <Routes/>

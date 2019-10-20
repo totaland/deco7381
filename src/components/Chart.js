@@ -1,50 +1,61 @@
 import { ResponsiveStream } from '@nivo/stream'
 import { linearGradientDef } from '@nivo/core'
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./Textcolor.css"
+import {API, graphqlOperation} from "aws-amplify";
+import * as queries from "../graphql/queries";
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
+
+// so I might need to get week ending on Sunday then the data will be push to that week only
+// when the week length is 7 object is over then push to the next one?
+// only allow logged in users to see their data
+
+// the data model
+// current data = only show the last 7 entries
+// test data is an array with 6 object.
+// dynamoDB I need a questionnaire - stress, anxiety, depression - filter by id
+//
 const testdata = [
     {
-        "Mood": 13,
-        "Energy": 23,
-        "Engagement": 7,
+        "Stress": 13,
+        "Anxiety": 23,
+        "Depression": 7,
     },
     {
-        "Mood": 11,
-        "Energy": 32,
-        "Engagement": 12,
+        "Stress": 11,
+        "Anxiety": 32,
+        "Depression": 12,
     },
     {
-        "Mood": 23,
-        "Energy": 27,
-        "Engagement": 12,
+        "Stress": 23,
+        "Anxiety": 27,
+        "Depression": 12,
 
     },
     {
-        "Mood": 2,
-        "Energy": 9,
-        "Engagement": 17,
+        "Stress": 2,
+        "Anxiety": 9,
+        "Depression": 17,
     },
     {
-        "Mood": 8,
-        "Energy": 19,
-        "Engagement": 27,
+        "Stress": 8,
+        "Anxiety": 19,
+        "Depression": 27,
     },
     {
-        "Mood": 29,
-        "Energy": 22,
-        "Engagement": 14,
+        "Stress": 29,
+        "Anxiety": 22,
+        "Depression": 14,
     },
     {
-        "Mood": 21,
-        "Energy": 12,
-        "Engagement": 3,
+        "Stress": 21,
+        "Anxiety": 12,
+        "Depression": 3,
     },
-
 ];
 
 const theme = {
@@ -77,9 +88,40 @@ const theme = {
 
 export const MyResponsiveStream = ({data}) => {
 
+    const [realData, setData] = useState(null);
+    const dataRef = useRef(null);
+    dataRef.current = realData;
+
+    useEffect(()=> {
+        const getData = async () => {
+            let res = await API.graphql(graphqlOperation(queries.listFitnesss, {limit: 6}))
+            console.log(res.data.listFitnesss.items);
+            let arr = res.data.listFitnesss.items;
+            let dataToSet =[];
+            await arr.map(async (value) => {
+                console.log(value);
+                const dScore = value.depression;
+                const aScore = value.anxiety;
+                const sScore = value.stress;
+                let item = {
+                    "Stress": sScore,
+                    "Anxiety": aScore,
+                    "Depression": dScore,
+                };
+                dataToSet.push(item)
+            })
+            console.log(dataToSet);
+            setData(dataToSet);
+        }
+        getData();
+    },[])
+
+    console.log(realData);
+    console.log(testdata);
+
     return (
-        <ResponsiveStream
-            data={testdata}
+        realData && <ResponsiveStream
+            data={realData}
             theme = {theme}
             keys={data}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -137,19 +179,19 @@ export const MyResponsiveStream = ({data}) => {
             fill={[
                 {
                     match: {
-                        id: 'Mood'
+                        id: 'Stress'
                     },
                     id: 'gradientC'
                 },
                 {
                     match: {
-                        id: 'Energy'
+                        id: 'Anxiety'
                     },
                     id: 'gradientB'
                 },
                 {
                     match: {
-                        id: 'Engagement'
+                        id: 'Depression'
                     },
                     id: 'gradientA'
                 }

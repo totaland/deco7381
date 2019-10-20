@@ -17,6 +17,7 @@ type Patient
   phone: String
   appointments: [Appointment] @connection(name: "Appointments")
   psychologist: Psychologist @connection(name: "Patients")
+  fitness: [Fitness] @connection(name: "Fitness")
 }
 type Appointment
   @model
@@ -27,4 +28,14 @@ type Appointment
   psychologist: Psychologist @connection(name: "AppointmentsPsychologist")
   purpose: String
   time: String
+}
+type Fitness
+  @model
+  @auth(rules: [{allow: owner}])
+{
+  id: ID!
+  depression: Int
+  anxiety: Int
+  stress: Int
+  patient: Patient @connection(name: "Fitness")
 }
