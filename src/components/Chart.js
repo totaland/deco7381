@@ -46,7 +46,7 @@ export const MyResponsiveStream = ({data}) => {
 
     useEffect(()=> {
         const getData = async () => {
-            let res = await API.graphql(graphqlOperation(queries.listFitnesss, {limit: 6}))
+            let res = await API.graphql(graphqlOperation(queries.listFitnesss, {limit: 50}))
             console.log(res.data.listFitnesss.items);
             let arr = res.data.listFitnesss.items;
             let dataToSet =[];

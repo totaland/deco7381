@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e7bcaa6-24d3-498a-80d9-42dff5a7d836" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/WellBeing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amplify/backend/api/masterdeco7381api/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/amplify/backend/api/masterdeco7381api/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chartview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chartview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Stressfitnesscheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Stressfitnesscheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Wellbeingcheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wellbeingcheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/queries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphql/subscriptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/subscriptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WellBeing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WellBeing.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

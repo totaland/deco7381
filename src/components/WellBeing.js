@@ -46,7 +46,7 @@ export const WellBeing = ({data}) => {
 
     useEffect(()=> {
         const getData = async () => {
-            let res = await API.graphql(graphqlOperation(queries.listWellnesss, {limit: 6}))
+            let res = await API.graphql(graphqlOperation(queries.listWellnesss, {limit: 50}))
             console.log(res.data.listWellnesss.items);
             let arr = res.data.listWellnesss.items;
             let dataToSet =[];
