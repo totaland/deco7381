@@ -152,14 +152,11 @@ const Stressfitnesscheck = () => {
                 initialValues={{}}
                 onSubmit={(values, {setSubmitting}) => {
                     setTimeout(async () => {
-                        alert(JSON.stringify(values, null, 2));
-                        console.log(values);
                         const sScore = (parseInt(values.group0) + parseInt(values.group5) + parseInt(values.group7) + parseInt(values.group10) + parseInt(values.group11) + parseInt(values.group13) + parseInt(values.group17))*2;
                         const dScore = (parseInt(values.group2) + parseInt(values.group4) + parseInt(values.group9) + parseInt(values.group12) + parseInt(values.group15) + parseInt(values.group16) + parseInt(values.group20))*2;
                         const aScore = (parseInt(values.group1) + parseInt(values.group3) + parseInt(values.group6) + parseInt(values.group8) + parseInt(values.group14) + parseInt(values.group18) + parseInt(values.group19))*2;
                         try {
                             await API.graphql(graphqlOperation(queries.getPatient, {id: state2.userId})).then(async res => {
-                                console.log(res);
                                 let id = String(res.data.getPatient.fitness.items.length) + "-" + state2.userId;
                                 let id2 = String(0) + "-" + state2.userId;
                                 let id3;
