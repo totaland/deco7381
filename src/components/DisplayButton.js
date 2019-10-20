@@ -16,7 +16,7 @@ const Button = styled.button`
   ${props => props.cream && css`
       background: #efef93;
       color: #606060;
-      height: 60px;
+      height: 40px;
       border-radius: 11px;
       width: 90%;
   `}
@@ -25,7 +25,7 @@ const Button = styled.button`
   ${props => props.grey && css`
       background: #9d9d9d;
       color: #efef93;
-      height: 50px;
+      height: 40px;
       border-radius: 30px;
   `}
   

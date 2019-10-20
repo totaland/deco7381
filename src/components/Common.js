@@ -89,7 +89,7 @@ export const Button = styled(PlainButton)`
   ${props => props.cream && css`
       background: #efef93;
       color: #606060;
-      height: 60px;
+      height: 30px;
       border-radius: 11px;
       width: 90%;
   `}
@@ -98,7 +98,7 @@ export const Button = styled(PlainButton)`
   ${props => props.grey && css`
       background: #9d9d9d;
       color: #efef93;
-      height: 50px;
+      height: 30px;
       border-radius: 30px;
   `}
   

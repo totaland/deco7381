@@ -39,6 +39,11 @@ function reducer(state, action) {
                 ...state,
                 wellBeing: false,
             };
+        case "TOGGLE":
+            return {
+                ...state,
+                wellBeing: !state.wellBeing,
+            };
 
         default:
             return state;

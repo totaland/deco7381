@@ -47,6 +47,12 @@ const P = styled.p`
     display: ${props=> props.active? 'block': 'none'};
 `;
 
+const DescriptionContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+`;
+
 function reducer(state, action) {
     switch (action.type) {
         case 'Stress':
@@ -94,12 +100,14 @@ function wellBeingReducer(state, action) {
 }
 export function ChartView(){
 
+    const [active, setActive] = useState(false);
     const [
         signOut,
         state2,
         dispatch,
         createUser, createPsychologist, createAppointment,createFitness,createWellness
     ] = useContext(AppContext);
+
     const initialState = [0, 0, 0,1];
     const initialData = {
         data: ['Stress', 'Anxiety', 'Depression']
@@ -109,7 +117,6 @@ export function ChartView(){
     };
     const[state, dispatch1] = useReducer(reducer, initialData);
     const[wellBeing, dispatchWellbeing] = useReducer(wellBeingReducer, wellBeingInitialData);
-
     const[buttonState, setButton] = useState(initialState);
 
     let data = ['Depression','Anxiety','Stress','Comparisons'];
@@ -120,9 +127,16 @@ export function ChartView(){
         'The concept of Depression was popularized by Kahn (1990), who related this concept to the notion of psychological presence. According to his definition, Depression refers to the state in which individuals express their entire self--physically, cognitively, and emotionally--in their role.',
         'Select Stress, Anxiety or Depression for more details.'
     ];
+    let wellBeingItem = [
+        'The construct of Symptom Distress was induced from a review of the literature, extension of previously developed scales, and in-depth interviews with patients (Beecher, 1957; Hinton, 1963; McCorkle & Young, 1978; Schneider, 1976; Twycross, 1972). Based upon earlier works by Beecher (1957), Hinton (1963), and Twycross (1972), the SDS became one of the first scales to measure symptoms associated with cancer. ',
+        'The interpersonal relationship scale or modifications of the scale are used to assess overall relationship quality. The scale has been widely used to study the effectiveness of relationship enhancement programs for premarital or marital couples.',
+        'In human life, social roles are ubiquitous. Historically, social and personality psychologists sought to understand the relation between social roles and psychological functioning.',
+        'Select Symptom Distress Scale, Interpersonal Relations Scale or Social Role Scale for more details.'
+    ];
 
     const checkChart = state2.wellBeing ? <WellBeing data={wellBeing.data}/> : <MyResponsiveStream data={state.data}/>;
     const checkButton = state2.wellBeing ? data1 : data;
+    const checkDescription = state2.wellBeing? wellBeingItem : descriptionItem;
     const handleClick = (event) => {
         var arr = [0,0,0,0];
         arr[event.currentTarget.id] = 1;
@@ -132,6 +146,11 @@ export function ChartView(){
         } else {
             dispatch1({type: event.target.value});
         }
+    };
+
+    const handleToggle = () => {
+        setActive(!active);
+        dispatch({type: "TOGGLE"})
     };
 
     console.log(state);
@@ -144,15 +163,17 @@ export function ChartView(){
                     )}
                 </ButtonContainer>
                 <TextContainer grey>
-                    <H3>Description</H3>
-                    {descriptionItem.map((value, index)=>
+                    <DescriptionContainer>
+                        <H3>Description</H3>
+                        <NewButton active={active} onClick={handleToggle}>Toggle Chart</NewButton>
+                    </DescriptionContainer>
+                    {checkDescription.map((value, index)=>
                         <P key={index} id={index} active={buttonState[index]}>{value}</P>
                     )}
                 </TextContainer>
             </LeftContainer>
             <StyledContainer blue>
                 <Chart>
-                    {/*<MyResponsiveStream data={state.data}/>*/}
                     {checkChart}
                 </Chart>
                 <Result>

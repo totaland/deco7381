@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8e7bcaa6-24d3-498a-80d9-42dff5a7d836" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WellBeing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WellBeing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chartview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chartview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisplayButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisplayButton.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

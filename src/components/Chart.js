@@ -36,8 +36,6 @@ const theme = {
     }
 };
 
-
-
 export const MyResponsiveStream = ({data}) => {
 
     const [realData, setData] = useState(null);
