@@ -178,6 +178,7 @@ const Stressfitnesscheck = () => {
                                     console.log(e);
                                 }
                             });
+                            dispatch({type: "SETSTRESS"})
                         } catch (e) {
                             console.log(e);
                         }

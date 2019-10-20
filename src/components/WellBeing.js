@@ -38,7 +38,7 @@ const theme = {
 
 
 
-export const MyResponsiveStream = ({data}) => {
+export const WellBeing = ({data}) => {
 
     const [realData, setData] = useState(null);
     const dataRef = useRef(null);
@@ -46,19 +46,19 @@ export const MyResponsiveStream = ({data}) => {
 
     useEffect(()=> {
         const getData = async () => {
-            let res = await API.graphql(graphqlOperation(queries.listFitnesss, {limit: 6}))
-            console.log(res.data.listFitnesss.items);
-            let arr = res.data.listFitnesss.items;
+            let res = await API.graphql(graphqlOperation(queries.listWellnesss, {limit: 6}))
+            console.log(res.data.listWellnesss.items);
+            let arr = res.data.listWellnesss.items;
             let dataToSet =[];
             await arr.map(async (value) => {
                 console.log(value);
-                const dScore = value.depression;
-                const aScore = value.anxiety;
-                const sScore = value.stress;
+                const dScore = value.distress;
+                const irScore = value.interpersonal_relation;
+                const srScore = value.social_role;
                 let item = {
-                    "Stress": sScore,
-                    "Anxiety": aScore,
-                    "Depression": dScore,
+                    "Symptom Distress Scale": dScore,
+                    "Interpersonal Relations Scale": irScore,
+                    "Social Role Scale": srScore,
                 };
                 dataToSet.push(item)
             })
@@ -128,19 +128,19 @@ export const MyResponsiveStream = ({data}) => {
             fill={[
                 {
                     match: {
-                        id: 'Stress'
+                        id: 'Symptom Distress Scale'
                     },
                     id: 'gradientC'
                 },
                 {
                     match: {
-                        id: 'Anxiety'
+                        id: 'Interpersonal Relations Scale'
                     },
                     id: 'gradientB'
                 },
                 {
                     match: {
-                        id: 'Depression'
+                        id: 'Social Role Scale'
                     },
                     id: 'gradientA'
                 }

@@ -129,6 +129,15 @@ export const createPatient = `mutation CreatePatient($input: CreatePatientInput!
       }
       nextToken
     }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -164,6 +173,15 @@ export const updatePatient = `mutation UpdatePatient($input: UpdatePatientInput!
         depression
         anxiety
         stress
+      }
+      nextToken
+    }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
       }
       nextToken
     }
@@ -205,6 +223,15 @@ export const deletePatient = `mutation DeletePatient($input: DeletePatientInput!
       }
       nextToken
     }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -224,6 +251,9 @@ export const createAppointment = `mutation CreateAppointment($input: CreateAppoi
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
@@ -263,6 +293,9 @@ export const updateAppointment = `mutation UpdateAppointment($input: UpdateAppoi
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
     psychologist {
       id
@@ -298,6 +331,9 @@ export const deleteAppointment = `mutation DeleteAppointment($input: DeleteAppoi
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
@@ -340,6 +376,9 @@ export const createFitness = `mutation CreateFitness($input: CreateFitnessInput!
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
   }
 }
@@ -365,6 +404,9 @@ export const updateFitness = `mutation UpdateFitness($input: UpdateFitnessInput!
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
   }
 }
@@ -388,6 +430,93 @@ export const deleteFitness = `mutation DeleteFitness($input: DeleteFitnessInput!
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const createWellness = `mutation CreateWellness($input: CreateWellnessInput!) {
+  createWellness(input: $input) {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const updateWellness = `mutation UpdateWellness($input: UpdateWellnessInput!) {
+  updateWellness(input: $input) {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const deleteWellness = `mutation DeleteWellness($input: DeleteWellnessInput!) {
+  deleteWellness(input: $input) {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }

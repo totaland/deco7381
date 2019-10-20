@@ -90,6 +90,15 @@ export const getPatient = `query GetPatient($id: ID!) {
       }
       nextToken
     }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -114,6 +123,9 @@ export const listPatients = `query ListPatients(
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
     nextToken
   }
@@ -135,6 +147,9 @@ export const getAppointment = `query GetAppointment($id: ID!) {
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
@@ -202,6 +217,9 @@ export const getFitness = `query GetFitness($id: ID!) {
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
   }
 }
@@ -217,6 +235,55 @@ export const listFitnesss = `query ListFitnesss(
       depression
       anxiety
       stress
+      patient {
+        id
+        email
+        phone
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getWellness = `query GetWellness($id: ID!) {
+  getWellness(id: $id) {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const listWellnesss = `query ListWellnesss(
+  $filter: ModelWellnessFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWellnesss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      distress
+      interpersonal_relation
+      social_role
       patient {
         id
         email

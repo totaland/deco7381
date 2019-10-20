@@ -29,6 +29,17 @@ function reducer(state, action) {
                 email: action.email,
                 phone: action.phone
             };
+        case "SETWELLBEING":
+            return {
+                ...state,
+                wellBeing: true,
+            };
+        case "SETSTRESS":
+            return {
+                ...state,
+                wellBeing: false,
+            };
+
         default:
             return state;
 
@@ -43,6 +54,7 @@ function App() {
         username: "",
         email: "",
         phone: "",
+        wellBeing: false,
     }
 
     const [state2, dispatch] = useReducer(reducer, secondInit);
@@ -122,9 +134,17 @@ function App() {
         await API.graphql(
             graphqlOperation(mutations.createFitness, {input: fitness})
         );
-        console.log("appointment");
+        console.log("fitness");
     };
 
+    // create wellness
+    const createWellness = async (wellness) => {
+
+        await API.graphql(
+            graphqlOperation(mutations.createWellness, {input: wellness})
+        );
+        console.log("wellness");
+    };
     const signOut = async e => {
         await Auth.signOut();
         dispatch({type: "LOGOUT"});
@@ -133,7 +153,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <AppContext.Provider value={[signOut, state2, dispatch, createUser, createPsychologist, createAppointment,createFitness]}>
+            <AppContext.Provider value={[signOut, state2, dispatch, createUser, createPsychologist, createAppointment,createFitness,createWellness]}>
                 <div className="App site">
                     <ResponsiveAppBar/>
                     <Routes/>

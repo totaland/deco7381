@@ -18,6 +18,7 @@ type Patient
   appointments: [Appointment] @connection(name: "Appointments")
   psychologist: Psychologist @connection(name: "Patients")
   fitness: [Fitness] @connection(name: "Fitness")
+  wellness: [Wellness] @connection(name: "Wellness")
 }
 type Appointment
   @model
@@ -38,4 +39,14 @@ type Fitness
   anxiety: Int
   stress: Int
   patient: Patient @connection(name: "Fitness")
+}
+type Wellness
+  @model
+  @auth(rules: [{allow: owner}])
+{
+  id: ID!
+  distress: Int
+  interpersonal_relation: Int
+  social_role: Int
+  patient: Patient @connection(name: "Wellness")
 }

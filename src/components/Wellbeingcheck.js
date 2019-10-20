@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Formik, Field} from 'formik';
 import classNames from 'classnames';
 import styled from 'styled-components'
 import './activity.css'
 import {Redirect} from "react-router-dom";
+import {API, graphqlOperation} from "aws-amplify";
+import * as queries from "../graphql/queries";
+import {AppContext} from "../context/AppContext";
+import {createWellness} from "../graphql/mutations";
 const H1 = styled.h1`
     margin-left: 5%;
 `;
@@ -149,6 +153,12 @@ const RadioButtonGroup = ({
 const Wellbeingcheck = () => {
     const [redirect, setRedirect] = useState(false);
 
+    const [
+        signOut,
+        state2,
+        dispatch,
+        createUser, createPsychologist, createAppointment,createFitness,createWellness
+    ] = useContext(AppContext);
 
     const calculateScore = (data) => {
     };
@@ -161,9 +171,43 @@ const Wellbeingcheck = () => {
             <Formik
                 initialValues={{}}
                 onSubmit={(values, {setSubmitting}) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        console.log(values)
+                    setTimeout(async () => {
+                        //2,3,5,6,8,9,10,11,13,15,22,23,24,25,27,29,31,33,34,35,36,40,41,42,45
+                        const dScore = (parseInt(values.group1) + parseInt(values.group2) + parseInt(values.group4) + parseInt(values.group5) + parseInt(values.group7) + parseInt(values.group8) + parseInt(values.group9) +parseInt(values.group10) +parseInt(values.group12) +parseInt(values.group14) +parseInt(values.group21) +parseInt(values.group22) +parseInt(values.group23) +parseInt(values.group24) +parseInt(values.group26) +parseInt(values.group28) +parseInt(values.group30) +parseInt(values.group32) +parseInt(values.group33) +parseInt(values.group34) +parseInt(values.group35) +parseInt(values.group39) +parseInt(values.group40) +parseInt(values.group41) +parseInt(values.group44));
+                        console.log(dScore);
+                        //1,7,16,17,18,19,20,26,30,37,43
+                        const irScore = (parseInt(values.group0) + parseInt(values.group6) + parseInt(values.group15) + parseInt(values.group16) + parseInt(values.group17) + parseInt(values.group18) + parseInt(values.group19) +parseInt(values.group25) +parseInt(values.group29) +parseInt(values.group36) +parseInt(values.group42));
+                        console.log(irScore);
+                        //4,12,14,21,28,32,38,39,44
+                        const srScore = (parseInt(values.group3) + parseInt(values.group11) + parseInt(values.group13) + parseInt(values.group20) + parseInt(values.group27) + parseInt(values.group31) + parseInt(values.group37) +parseInt(values.group38) +parseInt(values.group43));
+                        console.log(srScore);
+                        try {
+                            await API.graphql(graphqlOperation(queries.getPatient, {id: state2.userId})).then(async res => {
+                                let id = String(res.data.getPatient.wellness.items.length) + "-" + state2.userId;
+                                let id2 = String(0) + "-" + state2.userId;
+                                let id3;
+                                if (res.data.getPatient.wellness.items.length >= 1) {
+                                    id3= id;
+                                } else {
+                                    id3 = id2;
+                                }
+                                const questionnaireDetails = {
+                                    id: id3,
+                                    distress: dScore,
+                                    interpersonal_relation: irScore,
+                                    social_role: srScore,
+                                    wellnessPatientId: state2.userId,
+                                };
+                                try {
+                                    await createWellness(questionnaireDetails);
+                                } catch (e) {
+                                    console.log(e);
+                                }
+                            });
+                            dispatch({type: "SETWELLBEING"})
+                        } catch (e) {
+                            console.log(e);
+                        }
                         setSubmitting(false);
                         setRedirect(true);
                     }, 500);
@@ -180,7 +224,7 @@ const Wellbeingcheck = () => {
                     <form onSubmit={handleSubmit}>
                         {questionnaires.map(((value, index) =>
                                 <RadioButtonGroup
-                                    key={index}
+                                    key={'well'+index}
                                     name={index}
                                     label={value}
                                     value={values.radioGroup}
@@ -189,9 +233,9 @@ const Wellbeingcheck = () => {
                                 >
                                     {fieldItems.map((value1,index1) => (
                                         <Field
-                                            key={index}
+                                            key={'wellField'+index}
                                             component={RadioButton}
-                                            name={index}
+                                            name={'group'+index}
                                             id={value1}
                                             label={index1}
                                         />

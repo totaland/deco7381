@@ -129,6 +129,15 @@ export const onCreatePatient = `subscription OnCreatePatient {
       }
       nextToken
     }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -164,6 +173,15 @@ export const onUpdatePatient = `subscription OnUpdatePatient {
         depression
         anxiety
         stress
+      }
+      nextToken
+    }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
       }
       nextToken
     }
@@ -205,6 +223,15 @@ export const onDeletePatient = `subscription OnDeletePatient {
       }
       nextToken
     }
+    wellness {
+      items {
+        id
+        distress
+        interpersonal_relation
+        social_role
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -224,6 +251,9 @@ export const onCreateAppointment = `subscription OnCreateAppointment {
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
@@ -263,6 +293,9 @@ export const onUpdateAppointment = `subscription OnUpdateAppointment {
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
     psychologist {
       id
@@ -298,6 +331,9 @@ export const onDeleteAppointment = `subscription OnDeleteAppointment {
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
@@ -340,6 +376,9 @@ export const onCreateFitness = `subscription OnCreateFitness {
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
   }
 }
@@ -365,6 +404,9 @@ export const onUpdateFitness = `subscription OnUpdateFitness {
       fitness {
         nextToken
       }
+      wellness {
+        nextToken
+      }
     }
   }
 }
@@ -388,6 +430,93 @@ export const onDeleteFitness = `subscription OnDeleteFitness {
         phone
       }
       fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onCreateWellness = `subscription OnCreateWellness {
+  onCreateWellness {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateWellness = `subscription OnUpdateWellness {
+  onUpdateWellness {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteWellness = `subscription OnDeleteWellness {
+  onDeleteWellness {
+    id
+    distress
+    interpersonal_relation
+    social_role
+    patient {
+      id
+      email
+      phone
+      appointments {
+        nextToken
+      }
+      psychologist {
+        id
+        email
+        phone
+      }
+      fitness {
+        nextToken
+      }
+      wellness {
         nextToken
       }
     }
