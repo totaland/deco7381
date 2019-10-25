@@ -41,9 +41,6 @@ const FieldStyled = styled(Field)`
   font-size: 1rem;
   line-height: 2em;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    
-  }
-  
 `;
 
 const Button = styled.button`
@@ -84,7 +81,8 @@ const Logopic = styled.img`
 const Label = styled.label`
   color: white;
   font-size: 20px;
-  
+  display: flex;
+  flex-direction: column;
 `;
 
 const schema = yup.object({
@@ -138,7 +136,6 @@ export default function RegisterForm(props) {
                 }}
                 onSubmit={(values, {setSubmitting}) => {
                     setTimeout(() => {
-                        // alert(JSON.stringify(values, null, 2));
                         try {
                             const newUser = Auth.signUp({
                                 username: values.username,
@@ -159,7 +156,6 @@ export default function RegisterForm(props) {
                         } catch (e) {
                             alert(e.message);
                         }
-
                         setSubmitting(false);
                     }, 400);
                 }}
@@ -204,7 +200,6 @@ export default function RegisterForm(props) {
         );
     } else {
         return (
-
             <Formik
                 initialValues={{username: "", confirmation_code: ""}}
                 validate={values => {
@@ -222,14 +217,16 @@ export default function RegisterForm(props) {
                     setTimeout(() => {
                         // alert(JSON.stringify(values, null, 2));
                         try {
-                            Auth.confirmSignUp(values.username, values.confirmation_code.toString()).then(() => {
-                                // userHasAuthenticated(true);
-                                dispatch({type: "LOGIN"})
+                            Auth.confirmSignUp(values.username, values.confirmation_code.toString()).then(async() => {
+                                await Auth.signIn(values.username, values.password).then(async(res)=> {
+                                    console.log(res);
+                                    await Auth.currentAuthenticatedUser();
+                                    dispatch({type: "LOGIN"})
+                                });
                             });
                         } catch (e) {
                             alert(e.message);
                         }
-
                         setSubmitting(false);
                     }, 400);
                 }}
@@ -244,9 +241,10 @@ export default function RegisterForm(props) {
                             <ErrorMessage name="username" component="div"/>
                         </Formline>
                         <Formline>
-                            <Label>Confirmation Code</Label>
-                            <FieldStyled type="number" name="confirmation_code"/>
+                            <Label htmlFor={"confirmation_code"}>Confirmation Code
+                            <FieldStyled type="text" name="confirmation_code"/>
                             <ErrorMessage name="confirmation_code" component="div"/>
+                            </Label>
                         </Formline>
                         <Button type="submit" disable={isSubmitting}>
                             Continue

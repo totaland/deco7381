@@ -44,6 +44,20 @@ function reducer(state, action) {
                 ...state,
                 wellBeing: !state.wellBeing,
             };
+        case "SETSTRESSSCORE":
+            return {
+                ...state,
+                depressionScore: action.depressionScore,
+                anxietyScore: action.anxietyScore,
+                stressScore: action.stressScore
+            };
+        case "SETWELLBEINGSCORE":
+            return {
+                ...state,
+                distressScore: action.distressScore,
+                interPersonalScore: action.interPersonalScore,
+                socialScore: action.socialScore
+            };
 
         default:
             return state;
@@ -60,6 +74,12 @@ function App() {
         email: "",
         phone: "",
         wellBeing: false,
+        depressionScore: 0,
+        anxietyScore: 0,
+        stressScore: 0,
+        distressScore: 0,
+        interPersonalScore: 0,
+        socialScore:0,
     }
 
     const [state2, dispatch] = useReducer(reducer, secondInit);

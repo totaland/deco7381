@@ -8,6 +8,7 @@ import DemoApp, {MonthYear, MonthYearButton, Week, Weekday} from "./Calendar";
 import DisplayButton from "./DisplayButton";
 import Amplify, {Auth, Storage, API, graphqlOperation} from "aws-amplify";
 import * as queries from "../graphql/queries";
+import * as subscriptions from '../graphql/subscriptions';
 
 // style
 export const NewButton = styled(DisplayButton)`
@@ -60,6 +61,28 @@ function Appointment(props) {
         };
         appointment();
     },[]);
+
+    useEffect(() => {
+        let updateData = async () => {
+            const subscription = API.graphql(
+                graphqlOperation(subscriptions.onCreateAppointment)
+            ).subscribe({
+                next: (appointmentData) =>{
+                    console.log(appointmentData);
+                    const {purpose, time} = appointmentData.value.data.onCreateAppointment;
+                     let eventDetails = {
+                        title: purpose,
+                         start: time
+                     };
+                    console.log(eventDetails);
+                    buttons =[...buttons, eventDetails]
+                    buttonValue.push(0)
+                    setState(buttons);
+                }
+            });
+        }
+        updateData();
+    }, []);
 
     console.log(details);
 

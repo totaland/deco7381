@@ -204,7 +204,8 @@ const Wellbeingcheck = () => {
                                     console.log(e);
                                 }
                             });
-                            dispatch({type: "SETWELLBEING"})
+                            dispatch({type: "SETWELLBEING"});
+                            dispatch({type: "SETWELLBEINGSCORE", distressScore: dScore, interPersonalScore: irScore, socialScore: srScore});
                         } catch (e) {
                             console.log(e);
                         }

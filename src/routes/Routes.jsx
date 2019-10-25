@@ -7,8 +7,8 @@ import {ChartView} from "../components/Chartview"
 import AuthenticatedRoute from "./AuthenticatedRoute";
 import UnauthenticatedRoute from "./UnauthenticatedRoute";
 import Button from "../components/Button";
-import Home from "../components/Home"
 import Activities from "../components/Activities"
+import Home from "../components/Home"
 
 export default ({childProps}) => (
     <Switch>
@@ -19,9 +19,5 @@ export default ({childProps}) => (
         <AuthenticatedRoute path="/button" exact component={Button} props={childProps}/>
         <UnauthenticatedRoute path="/login" exact component={SignInFormik}/>
         <UnauthenticatedRoute path="/register" exact component={RegisterFormik}/>
-        {/*<UnauthenticatedRoute path="/login" exact component={SignInForm} props={childProps}/>*/}
-        {/*<UnauthenticatedRoute path="/register" exact component={SignUpForm1}/>*/}
-        {/* Finally, catch all unmatched routes */}
-        {/*<Route component={NotFound} />*/}
     </Switch>
 );

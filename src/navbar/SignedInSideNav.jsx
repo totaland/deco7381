@@ -9,10 +9,10 @@ import {AppContext} from "../context/AppContext";
 
 const style = makeStyles(theme => ({
     navbar: {
-        height: 100,
+        height: 130,
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#3d3d3d",
+        backgroundColor: "#6267D0",
         paddingLeft: 16,
         paddingRight: 16,
         color: "white",
@@ -20,10 +20,16 @@ const style = makeStyles(theme => ({
         // paddingTop: 24,
     },
     username: {
-        paddingTop: 24
+        paddingTop: 24,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
     },
     email: {
-        paddingBottom: 16
+        paddingBottom: 16,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
     },
     link: {
         paddingTop: 0,
@@ -54,19 +60,21 @@ function SignedInSideNav () {
             email: email
         });
     };
-
     useEffect(() => {
         setUserInfo();
     },[]);
-
-
     const classes = style();
-
     return (
         <div>
             <div className={classes.navbar}>
-                <span className={classes.username}>{signInState.userName}</span>
-                <span className={classes.email}>{signInState.email}</span>
+                <div className={classes.username}>
+                    <div>Username:</div>
+                    <div>{signInState.userName}</div>
+                </div>
+                <div className={classes.email}>
+                    <div>Email address:</div>
+                    <div>{signInState.email}</div>
+                </div>
             </div>
             <Divider/>
             <List className={"link"}>
@@ -74,7 +82,13 @@ function SignedInSideNav () {
                     <NavLink to={"/"}>Home</NavLink>
                 </ListItem>
                 <ListItem className={classes.link}>
-                    <NavLink to={"/support"}>Support</NavLink>
+                    <NavLink to={"/activities"}>Activities</NavLink>
+                </ListItem>
+                <ListItem className={classes.link}>
+                    <NavLink to={"/appointment"}>Appointment</NavLink>
+                </ListItem>
+                <ListItem className={classes.link}>
+                    <NavLink to={"/progress"}>Progress</NavLink>
                 </ListItem>
                 <ListItem className={classes.link}>
                     <NavLink to={"#"} onClick={signOut}>Log Out</NavLink>

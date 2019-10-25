@@ -161,7 +161,6 @@ export default function SignInFormik(props) {
                             password: values.password
                         }).then(() => {
                             console.log("signed in");
-                            // userHasAuthenticated(true);
                             dispatch({type: "LOGIN"});
                         }).catch(err => {
                             console.log(err);

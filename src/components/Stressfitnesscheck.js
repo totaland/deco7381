@@ -178,7 +178,9 @@ const Stressfitnesscheck = () => {
                                     console.log(e);
                                 }
                             });
-                            dispatch({type: "SETSTRESS"})
+                            dispatch({type: "SETSTRESS"});
+                            console.log(dScore);
+                            dispatch({type: "SETSTRESSSCORE", depressionScore: dScore, anxietyScore: aScore, stressScore: sScore});
                         } catch (e) {
                             console.log(e);
                         }

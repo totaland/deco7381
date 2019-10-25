@@ -73,7 +73,7 @@ class IntroductionVideo extends Component {
     render() {
         return (
             <div>
-                <Video width="700" height="325" src="https://www.youtube.com/embed/kO0BJyhjLKU"/>
+                <Video width="700" height="325" src="https://www.youtube.com/embed/R2825kDSo4M"/>
                 <Formik
                     initialValues={{ feedback: ""}}
                     validate={values => {
@@ -83,16 +83,20 @@ class IntroductionVideo extends Component {
                         }
                         return errors;
                     }}
-                    onSubmit={(values, {setSubmitting}) => {
-
+                    onSubmit={(values, {setSubmitting, resetForm}) => {
+                        setTimeout(() => {
+                            alert(JSON.stringify(values, null, 2))
+                            setSubmitting(false);
+                            resetForm({feedback:""});
+                        }, 400);
                     }}
                 >
                     {({isSubmitting}) => (
                         <FormStyled>
                             <Formline>
                                 <Label>Feedback</Label>
-                                <FieldStyled type="text" name="username" />
-                                <ErrorMessage name="username" component={Error}/>
+                                <FieldStyled component="textarea" name="feedback" />
+                                <ErrorMessage name="feedback" component={Error}/>
                             </Formline>
                             <Button type="submit" disable={isSubmitting}>
                                 Continue

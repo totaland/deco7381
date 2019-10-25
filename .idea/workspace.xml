@@ -3,11 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="8e7bcaa6-24d3-498a-80d9-42dff5a7d836" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Activities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Activities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StressChart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Chartview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chartview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DisplayButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisplayButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IntroductionVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IntroductionVideo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Stressfitnesscheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Stressfitnesscheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WellBeing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WellBeing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Wellbeingcheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wellbeingcheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navbar/SignedInSideNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navbar/SignedInSideNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/RegisterFormik.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/RegisterFormik.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Routes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/SignInFormik.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/SignInFormik.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +93,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aee7fd9e-3932-4708-97f9-cbc5a69a6e82" name="Default Changelist" comment="" />
+      <changelist id="8e7bcaa6-24d3-498a-80d9-42dff5a7d836" name="Default Changelist" comment="" />
       <created>1566619904300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -92,6 +101,9 @@
       <workItem from="1566619905961" duration="713000" />
       <workItem from="1570353622827" duration="10665000" />
       <workItem from="1570533382138" duration="2072000" />
+      <workItem from="1571828091047" duration="3000" />
+      <workItem from="1571925582263" duration="5837000" />
+      <workItem from="1571956024662" duration="11243000" />
     </task>
     <servers />
   </component>
